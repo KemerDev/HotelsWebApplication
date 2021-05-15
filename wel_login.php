@@ -45,7 +45,8 @@
   $sel_stmt->execute();
 
   while($row = $sel_stmt->fetch(PDO::FETCH_ASSOC)) {
-    if (isset($_POST[$row["h_id"]])) {
+    $temp = "update/".$row["h_id"];
+    if (isset($_POST[$temp])) {
       $hotel_id = $row["h_id"];
       $name = strip_tags($_POST["edit_name"]);
       $country = strip_tags($_POST["edit_country"]);
@@ -71,13 +72,15 @@
   $sel_stmt = $db->prepare("SELECT * FROM hotels_photos WHERE id = :id");
   $sel_stmt->execute(array(':id' => $photo_id));
   $row = $sel_stmt->fetch(PDO::FETCH_ASSOC);
+
   $file_name = $row["p_name"];
 
   if(isset($_POST[$photo_id])) {
 
     $files = glob('image_temp/*');
     foreach($files as $file){
-      if(is_file($file) === $file_name) {
+      $string =  basename($file);
+      if($string === $file_name) {
         unlink($file);
         break;
       }
@@ -113,18 +116,31 @@
 
   $db = db_connect();
 
-  $sel_stmt = $db->prepare("SELECT * FROM userhotels");
-  $sel_stmt->execute();
+  $ho_stmt = $db->prepare("SELECT * FROM userhotels");
+  $ho_stmt->execute();
 
-  while($row = $sel_stmt->fetch(PDO::FETCH_ASSOC)) {
-    $temp = "delete_" .$row["h_id"];
-    if (isset($_POST[$temp])) {
+  while($h_row = $ho_stmt->fetch(PDO::FETCH_ASSOC)) {
+    $temp = "delete/".$h_row["h_id"];
+    $po_stmt = $db->prepare("SELECT * FROM hotels_photos WHERE h_id = :pid");
+    $po_stmt->execute(array(':pid' => $h_row["h_id"]));
+    if(isset($_POST[$temp])) {
+      $files = glob('image_temp/*');
+      while($p_row = $po_stmt->fetch(PDO::FETCH_ASSOC)) {
+        $file_name = $p_row["p_name"];
+        foreach($files as $file){
+          $string = basename($file);
+          if($string === $file_name) {
+            unlink($file);
+            break;
+          }
+        }
+      }
       $del_stmt = $db->prepare("DELETE FROM userhotels WHERE h_id = :hid");
-      $del_stmt->execute(array(':hid' => $row["h_id"]));
-      $db -> close();
-      break;
+      $del_stmt->execute(array(':hid' => $h_row["h_id"]));
     }
-  }?>
+    break;
+  }
+  ?>
 
 <?php
   $db = db_connect();

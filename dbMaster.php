@@ -252,7 +252,7 @@ function get_user_h($id) {
           echo '<div>';
             echo '<strong>'.pathinfo($photo["p_name"], PATHINFO_FILENAME).'</strong>';
             echo '<form id="'.$photo["id"].'" method="post" style="margin-bottom:0;margin-left:20px;padding:0;display: inline;">';
-              echo '<button type="submit" name="'.$photo["id"].' title="Delete '.$photo["p_name"].'?" style="padding:0;background:none;border:none;cursor: pointer;"><img src="media/del_x.png" style="width:20;height:20;"/></button>';
+              echo '<button type="submit" name="'.$photo["id"].'" title="delete '.$photo["p_name"].'?" style="padding:0;background:none;border:none;cursor: pointer;"><img src="media/del_x.png" style="width:20;height:20;"/></button>';
             echo '</form>';
           echo '</div>';
           echo '<img src="image_temp/'.$photo["p_name"].'"style="margin:12px 0 12px;width:125;height:75;"/>';
@@ -272,7 +272,7 @@ function get_user_h($id) {
       echo '</div>';
     echo '</div>';
         echo '<form method="post" style="margin-top:6px;margin-left:860px;padding:0;position:absolute;">';
-          echo '<button type="submit" "value="ok" name="delete_'.$row["h_id"].'" title="Delete '.$row["name"].'?" style="margin-left:10px;padding:0;background:none;border:none;cursor: pointer;"><img src="media/del_x.png" style="width:20;height:20;"></button>';
+          echo '<button type="submit" "value="ok" name="delete/'.$row["h_id"].'" title="Delete '.$row["name"].'?" style="margin-left:10px;padding:0;background:none;border:none;cursor: pointer;"><img src="media/del_x.png" style="width:20;height:20;"></button>';
         echo '</form>';
         echo  '<form method="post" style="margin:0;flex-wrap: wrap; justify-content: left;">';
           echo    '<input style="margin-top:10px;margin-left:10px;padding:0;" type="text" name="edit_name" maxlength="50" size="30" placeholder="Name:'.$row["name"].'">';
@@ -282,7 +282,7 @@ function get_user_h($id) {
           echo    '<input style="margin-top:10px;margin-left:10px;padding:0;" type="text" name="edit_phone" maxlength="50" size="30" placeholder="Phone:'.$row["phone"].'">';
           echo    '<input style="margin-top:10px;margin-left:10px;padding:0;" type="text" name="edit_rooms" maxlength="50" size="30" placeholder="Rooms:'.$row["rooms"].'">';
           echo    '<textarea style="margin-top:10px;margin-left:10px;padding:0;width:90%;resize: none;" name="edit_descri" cols="50" rows="10" placeholder="Description:'.$row["descr"].'"></textarea>';
-          echo    '<button style="margin-left:10px" type="submit" enctype="multipart/form-data" name='.$row["h_id"].'>Update Information</button>';
+          echo    '<button style="margin-left:10px" type="submit" enctype="multipart/form-data" name="update/'.$row["h_id"].'">Update Information</button>';
         echo  '</form>';
     echo '</div>';
   }
