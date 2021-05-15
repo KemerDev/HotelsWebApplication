@@ -210,7 +210,7 @@ function uphotel_img($f_name, $f_size, $f_type, $f_temp, $h_name) {
   $row = $sel_stmt->fetch(PDO::FETCH_ASSOC);
 
   for($i = 0; $i < count($f_name); $i++) {
-    if($f_size[$i] < 5242880){
+    if($f_size[$i] < 307200){
       $up_temp = 'image_temp/'.basename($f_name[$i]);
 
       $ins_stmt = $db->prepare("INSERT into hotels_photos (h_id, p_name, size, type)
