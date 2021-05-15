@@ -376,7 +376,8 @@
   </footer>
 
   <script>
-    if (window.location.href === "http://localhost/project/wel_login.php?edit") {
+    var oldURL = document.referrer;
+    if(oldURL === "http://localhost/project/wel_login.php?edit") {
       var edit = document.getElementById("ed-show");
       var upload = document.getElementById("up-show");
       var account = document.getElementById("ac-show");
@@ -386,7 +387,7 @@
         account.style.display = "none";
         edit.style.display = "inline-block";
       }
-    } elseif (window.location.href === "http://localhost/project/wel_login.php?upload"){
+    } else if(oldURL === "http://localhost/project/wel_login.php?upload") {
       var upload = document.getElementById("up-show");
       var edit = document.getElementById("ed-show");
       var account = document.getElementById("ac-show");
@@ -395,9 +396,10 @@
         edit.style.display = "none";
         account.style.display = "none";
         upload.style.display = "flex";
+      }
     } else {
-      var upload = document.getElementById("up-show");
       var edit = document.getElementById("ed-show");
+      var upload = document.getElementById("up-show");
       var account = document.getElementById("ac-show");
 
       if(account.style.display === "none") {
@@ -406,8 +408,7 @@
         account.style.display = "flex";
       }
     }
-  }
-    </script>
+  </script>
 
   <script>
     function up_show() {

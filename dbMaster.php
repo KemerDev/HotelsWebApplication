@@ -263,16 +263,8 @@ function get_user_h($id) {
     echo '<div style="margin-bottom:20px;width:100%;border:solid;border-width:thin;box-shadow: 5px 10px 8px #888888;display: flex;">';
     echo '<div>';
       echo '<div>';
-        foreach ($photos as $photo){
-          if($row["h_id"] === $photo["h_id"]) {
-            echo '<img src="image_temp/'.$photo["p_name"].'"style="width:250;height:125;"/>';
-            break;
-          }
-      }
-      echo '</div>';
-      echo '<div>';
         echo '<form enctype="multipart/form-data" method="post">';
-          echo '<strong">Upload photos</strong>';
+          echo '<strong>Upload photos</strong>';
           echo '<input type="file" name="n_photos[]" style="margin:10px 0 10px;" multiple>';
           echo '<button type="submit"
            name="upload_'.$row["h_id"].'" >Upload Photos</button>';
