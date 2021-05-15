@@ -1,0 +1,540 @@
+@import url(//db.onlinewebfonts.com/c/12d2fa3dcf227b9538084a6bcfeafcf0?family=Trajan+Pro);
+html {
+  height: 100%;
+}
+body {
+  background-color: rgba(0, 100, 90, 0.5);
+  margin: 0;
+  padding-bottom: 150px;
+  max-width: 1920px;
+  height: 100%;
+  font-family: sans-serif;
+}
+
+/* header css startS */
+.main-header {
+  position: relative;
+  background-color: white;
+  border-bottom: solid;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  max-height: 100px;
+}
+
+.hder-container {
+  width: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.hder-wrapp {
+  width: 100%;
+  display: table;
+}
+
+.left-col {
+  display: table-cell;
+  width: 80%;
+}
+
+.right-col {
+  display: table-cell;
+  width: 20%;
+  vertical-align: middle;
+}
+
+.right-col button {
+  margin-left: 50%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: Trajan pro;
+  text-decoration: none;
+  color: black;
+  font-size: 18pt;
+}
+
+.right-col input {
+  font-family: Trajan pro;
+  color: black;
+  font-size: 18pt;
+}
+/*header css end*/
+
+/*welcome header css start*/
+
+.main-header-wel {
+  background-color: white;
+  border-bottom: solid;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  max-height: 100px;
+}
+
+.hder-container-wel {
+  width: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.hder-wrapp-wel {
+  width: 100%;
+  display: table;
+}
+
+.left-col-wel {
+  display: table-cell;
+  width: 80%;
+}
+
+.right-col-wel {
+  display: table-cell;
+  position: relative;
+  width: 20%;
+  vertical-align: middle;
+  text-align: right;
+}
+
+.right-col-img {
+  margin-left: auto;
+}
+
+.right-col-img button {
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.right-col-img button img {
+  border-radius: 70%;
+  width: 75px;
+  height: 75px;
+}
+
+.prof-menu-main {
+  position: absolute;
+  display: none;
+  width: 100%;
+}
+.prof-menu-contain {
+  margin-left: auto;
+  width: 175px;
+  background-color: white;
+  border: solid;
+  border-width: thin;
+}
+
+.prof-menu-set {
+  display: block;
+  height: 10%;
+  border: solid;
+  border-width: thin;
+  text-align: center;
+}
+
+.prof-menu-set form {
+  margin: 0;
+  height: 100%;
+}
+
+.prof-menu-set form button {
+  margin: 10px 0 10px;
+  padding: 0;
+  width: 100%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14pt;
+}
+
+.prof-menu-set a {
+  margin: 0;
+  width: 100%;
+  height: 45px;
+  text-decoration: none;
+  font-size: 14pt;
+  color: black;
+}
+/*welcome header css end*/
+
+.main-body-cont {
+  position: static;
+  overflow: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 100px;
+  height: auto;
+}
+
+.main-body-wrapp {
+  width: 100%;
+  display: flex;
+}
+
+.left-col-up {
+  padding: 75px 0 0;
+  width: 20%;
+  text-align: center;
+}
+
+.left-col-contain-up {
+  background-color: white;
+  border: solid;
+  border-width: thin;
+  min-height: 200px;
+}
+
+.left-col-contain-up div {
+  margin: 20px 0 20px;
+  border-bottom: solid;
+  border-width: thin;
+}
+
+.left-col-contain-up div button {
+  padding: 0;
+  background: none;
+  border: none;
+  width: 100%;
+  font-size: 12pt;
+  cursor: pointer;
+}
+
+.right-col-up {
+  padding: 75px 0 100px;
+  width: 80%;
+}
+
+.right-col-contain-up {
+  background-color: white;
+  border: solid;
+  border-width: thin;
+  min-height: 650px;
+}
+
+.right-col-upload {
+  margin: 20px 20% 0;
+}
+
+.right-col-upload form{
+  flex-wrap: wrap;
+  justify-content: left;
+
+}
+
+.right-col-upload form div {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.right-col-upload form div input {
+  width: 100%;
+  height: 50px;
+  font-size: 12pt;
+}
+
+.right-col-upload form #paragraph {
+  width: 100%;
+}
+
+.right-col-upload form #paragraph textarea {
+  width: 100%;
+  height: 350px;
+  resize: none;
+  font-size: 12pt;
+}
+
+.right-col-upload form #button button {
+  width: 100px;
+  height: 50px;
+}
+
+.right-col-upload form div button {
+  padding: 0;
+  background: none;
+  border: solid;
+  border-width: thin;
+  width: 100%;
+  font-size: 12pt;
+  cursor: pointer;
+}
+
+@keyframes welcome {
+  0% {left: 0px; opacity: 0;}
+  100% {left: 44%;opacity: 1;}
+}
+
+#wel_mes {
+  opacity: 0;
+  margin: 20px 0 0;
+  position: absolute;
+  font-size: 25px;
+  animation: welcome 5s forwards;
+}
+
+/*modal css start*/
+
+.modal {
+  display: none;
+  padding: 100px 300px 500px;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 1280px;
+  height: 720px;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 100%;
+}
+
+.modal-content {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+/*modal css end*/
+
+/*login form start*/
+.main-f-login {
+  margin-top: -30px;
+  left: 76%;
+  background-color: white;
+  border: solid;
+  border-width: thin;
+  box-shadow: 5px 10px 8px #888888;
+  width: 400px;
+  position: absolute;
+  height: auto;
+  transform: scale(0);
+  transition: .6s ease opacity,.6s ease transform;
+}
+
+.main-form-cont-login {
+  margin: 10px auto 10px;
+  width: 80%;
+}
+
+.main-form-cont-wrapp {
+  width: 100%;
+}
+
+.text {
+  text-align: center;
+  font-size: 25px;
+}
+
+.main-form-login {
+  margin-top: -20px;
+}
+
+.login-data {
+  height: 45px;
+  width: 100%;
+  margin: 40px 0;
+}
+
+form .login-data input {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+form .login-btn {
+  border: solid;
+  width: 100%;
+  height: 45px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+form .signup {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+form .signup a {
+  text-decoration: none;
+}
+
+/*login form end*/
+/*create form start */
+.main-form-bod {
+  background-color: rgba(0, 100, 90, 0.5);
+  margin: 70px auto 0;
+  width: 700px;
+  height: auto;
+}
+
+.main-form-cont-bod {
+  margin: 10px auto 10px;
+  width: 80%;
+}
+
+.main-form-wrapp-bod {
+  width: 100%;
+}
+
+.main-form {
+  margin-top: -20px;
+}
+
+.text-cre {
+  font-family: Trajan pro;
+  text-align: center;
+  font-size: 30px;
+}
+
+.sign-data {
+  height: 45px;
+  width: 100%;
+  margin: 40px 0;
+}
+
+form .sign-data input {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+form .sign-btn {
+  border: solid;
+  width: 40%;
+  height: 45px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/*create form end */
+
+/*search index start*/
+
+.main-search-div {
+  margin: 100px 0 0;
+  width: 100%;
+  height: 200px;
+}
+
+.main-search-cont {
+  background-color: rgba(0, 100, 90, 0.5);
+  margin: 0 400px 0;
+  width: auto;
+  height: 100%;
+}
+
+.text-search {
+  padding-top: 20px;
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+.main-search-wrapp {
+  padding: 30px 0 0;
+  width: 100%;
+}
+
+.main-search-wrapp form {
+  display: flex;
+  width: 100%;
+  margin: 0
+}
+
+.main-search-input {
+  width: 80%;
+}
+
+.main-search-wrapp form div input{
+  padding: 0;
+  width: 100%;
+  height: 45px;
+  font-size: 15pt;
+}
+
+.main-search-but {
+  width: 20%;
+}
+
+.main-search-wrapp form div button {
+  padding: 0;
+  border: solid;
+  border-width: thin;
+  width: 100%;
+  height: 45px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/*search index end*/
+
+
+/*verify form start */
+.ver_cont {
+  position: relative;
+  background-color: pink;
+  margin-top: 200px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin-left: 500px;
+  margin-right: 500px;
+  width: auto;
+  text-align: center;
+}
+
+.ver_wrapp {
+  width: 100%;
+  display: block;
+}
+/*verify form end*/
+
+/*footer start*/
+.main-footer {
+  position: fixed;
+  bottom: 0;
+  margin-top: 10px;
+  background-color: white;
+  border-top: solid;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+}
+
+.main-footer-contain {
+  padding: 0 20px 0;
+  width: auto;
+}
+
+.main-footer-wrapp {
+  margin: 5px 0 0;
+  width: 100%;
+}
+
+.main-footer-wrapp strong {
+  display: block;
+}
+
+/*footer end*/
