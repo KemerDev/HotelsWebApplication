@@ -10,7 +10,7 @@
   $id = $_SESSION["ulogin"];
 
   $_SESSION["logout"] = time();
-  if($_SESSION["logout"] == time()+5*60) {
+  if($_COOKIE["type"] == time()+300) {
     logout();
   } else if(isset($_GET["out"])) {
     logout();
@@ -219,6 +219,7 @@
   <title>WebHotels</title>
   <link rel="stylesheet" href="style.css">
   <script src="jquery-3.5.1.min.js"></script>
+  <meta http-equiv="refresh" content="300" >
 </head>
 <body>
   <header class="main-header-wel">
@@ -310,10 +311,10 @@
                 <input type="text" name="address" maxlength="30" size="40" placeholder="address" required>
               </div>
               <div>
-                <input type="text" name="phone" maxlength="30" size="40" placeholder="phone" required>
+                <input type="text" name="phone" maxlength="10" size="40" placeholder="phone" required>
               </div>
               <div>
-                <input type="text" name="rooms" maxlength="30" size="20" placeholder="available rooms" required>
+                <input type="text" name="rooms" maxlength="5" size="20" placeholder="available rooms" required>
               </div>
               <div id="paragraph">
                 <textarea name="graph_text" cols="50" rows="10" placeholder="description" required></textarea>

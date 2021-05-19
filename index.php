@@ -52,6 +52,7 @@
   <meta charset="utf-8">
   <title>WebHotels</title>
   <link rel="stylesheet" href="style.css">
+  <meta http-equiv="refresh" content="10" >
 </head>
 
 <body>

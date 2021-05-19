@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <title>verify</title>
-
+    <meta http-equiv="refresh" content="10" >
   </head>
   <body>
     <header class="main-header">

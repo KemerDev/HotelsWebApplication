@@ -22,6 +22,7 @@
 <head>
   <meta charset="utf-8">
   <title>login form</title>
+  <meta http-equiv="refresh" content="300">
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 

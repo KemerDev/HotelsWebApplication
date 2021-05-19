@@ -133,6 +133,7 @@ function login_acc($username, $password) {
           if(strcmp($inactive, $row["status"]) == 0) {
             return $er_msg[] = "You must activate your account to login";
           } else {
+            setcookie("type", $row["user_id"], time()+300);
             $_SESSION["ulogin"] = $row["user_id"];
             header("refresh:2; wel_login.php");
           }
