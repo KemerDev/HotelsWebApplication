@@ -1,7 +1,7 @@
 @import url(//db.onlinewebfonts.com/c/12d2fa3dcf227b9538084a6bcfeafcf0?family=Trajan+Pro);
 
 html {
-  background-color: 639FAB;
+  background-color: 222222;
 }
 
 body {
@@ -66,8 +66,9 @@ body {
 /*welcome header css start*/
 
 .main-header-wel {
-  background-color: white;
+  background-color: 639FAB;
   border-bottom: solid;
+  border-color: BBCDE5;
   margin: 0;
   padding: 0;
   max-width: 100%;
@@ -196,7 +197,7 @@ body {
 }
 
 .left-col-contain-up {
-  background-color: white;
+  background-color: 639FAB;
   border: solid;
   border-width: thin;
   min-height: 200px;
@@ -223,7 +224,7 @@ body {
 }
 
 .right-col-contain-up {
-  background-color: white;
+  background-color: 639FAB;
   border: solid;
   border-width: thin;
   min-height: 650px;
@@ -287,6 +288,7 @@ body {
   position: absolute;
   font-size: 25px;
   animation: welcome 5s forwards;
+  color: white;
 }
 
 /*modal css start*/
@@ -556,8 +558,9 @@ form .sign-btn {
   position: fixed;
   bottom: 0;
   margin-top: 10px;
-  background-color: white;
+  background-color: 639FAB;
   border-top: solid;
+  border-color: BBCDE5;
   width: 100%;
   height: 50px;
   text-align: center;

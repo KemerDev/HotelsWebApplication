@@ -8,7 +8,6 @@
   }
 
   $id = $_SESSION["ulogin"];
-
   $_SESSION["logout"] = time();
   if($_COOKIE["type"] == time()+300) {
     logout();
@@ -210,18 +209,17 @@
   }
   ?>
 
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
   <meta charset="utf-8">
   <title>WebHotels</title>
-  <link rel="stylesheet" href="style.css">
+  <link id="stylelida" rel="stylesheet" href="style.css">
   <script src="jquery-3.5.1.min.js"></script>
   <meta http-equiv="refresh" content="300" >
 </head>
-<body>
+<body onload="onloadputstyle()">
   <header class="main-header-wel">
     <div class="hder-container-wel">
       <div class="hder-wrapp-wel">
@@ -254,6 +252,12 @@
                 <a href="wel_login.php">
                   Account
                 </a>
+              </div>
+              <div class="prof-menu-set">
+                <div>
+                  <button onclick="cha_mode('dark.css')" name="button">Dark</button>
+                  <button onclick="cha_mode('light.css')" name="button">light</button>
+                </div>
               </div>
               <div class="prof-menu-set">
                 <form method="get">
@@ -314,7 +318,7 @@
                 <input type="text" name="phone" maxlength="10" size="40" placeholder="phone" required>
               </div>
               <div>
-                <input type="text" name="rooms" maxlength="5" size="20" placeholder="available rooms" required>
+                <input type="text" name="rooms" maxlength="3" size="20" placeholder="available rooms" required>
               </div>
               <div id="paragraph">
                 <textarea name="graph_text" cols="50" rows="10" placeholder="description" required></textarea>
@@ -383,14 +387,59 @@
   </div>
   </div>
 
-  <footer class="main-footer">
-    <div class="main-footer-contain">
-      <div class="main-footer-wrapp">
+  <footer class="main-footer-wel">
+    <div class="main-footer-contain-wel">
+      <div class="main-footer-wrapp-wel">
         <strong>Made by</strong>
         <strong>Kemeridis</strong>
       </div>
     </div>
   </footer>
+
+  <script>
+  function accessCookie(cookieName) {
+        var name = cookieName + "=";
+        var allCookieArray = document.cookie.split(';');
+        for(var i=0; i<allCookieArray.length; i++)
+        {
+          var temp = allCookieArray[i].trim();
+          if (temp.indexOf(name)==0)
+          return temp.substring(name.length,temp.length);
+        }
+        return "";
+      }
+  </script>
+
+  <script>
+  function onloadputstyle() {
+    var styl = document.getElementById('stylelida').href;
+    var styl_split = styl.split("/").pop();
+    var value = accessCookie(styl_split);
+    if (value === styl_split) {
+      document.getElementById('stylelida').href = value;
+    } else {
+      document.getElementById('stylelida').href = value;
+    }
+  }
+  </script>
+
+  <script>
+    function cha_mode(sheet){
+      document.getElementById('stylelida').href = sheet;
+      var value = accessCookie(sheet);
+      if(sheet === 'dark.css') {
+        document.cookie = value +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        let date = new Date(Date.now() + 86400e3);
+        date = date.toUTCString();
+        document.cookie = "dark = dark.css; expires=" + date;
+      } else {
+        document.cookie = value +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        let date = new Date(Date.now() + 86400e3);
+        date = date.toUTCString();
+        document.cookie = "light = light.css; expires=" + date;
+      }
+    }
+  </script>
 
   <script>
     var oldURL = document.referrer;
