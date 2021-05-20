@@ -256,7 +256,7 @@
               <div class="prof-menu-set">
                 <div>
                   <button onclick="cha_mode('dark.css')" name="button">Dark</button>
-                  <button onclick="cha_mode('light.css')" name="button">light</button>
+                  <button onclick="cha_mode('style.css')" name="button">light</button>
                 </div>
               </div>
               <div class="prof-menu-set">
@@ -404,7 +404,7 @@
         {
           var temp = allCookieArray[i].trim();
           if (temp.indexOf(name)==0)
-          return temp.substring(name.length,temp.length);
+            return temp.substring(name.length,temp.length);
         }
         return "";
       }
@@ -415,10 +415,12 @@
     var styl = document.getElementById('stylelida').href;
     var styl_split = styl.split("/").pop();
     var value = accessCookie(styl_split);
-    if (value === styl_split) {
+    console.log(value);
+    if (value === 'style.css') {
       document.getElementById('stylelida').href = value;
     } else {
       document.getElementById('stylelida').href = value;
+      var allCookieArray = document.cookie.split(';');
     }
   }
   </script>
@@ -427,16 +429,16 @@
     function cha_mode(sheet){
       document.getElementById('stylelida').href = sheet;
       var value = accessCookie(sheet);
-      if(sheet === 'dark.css') {
-        document.cookie = value +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      if(sheet == 'dark.css') {
         let date = new Date(Date.now() + 86400e3);
         date = date.toUTCString();
-        document.cookie = "dark = dark.css; expires=" + date;
+        document.cookie = "style.css=;expires=Thu, 01 Jan 1970 00:00:00 UTC;SameSite=None; Secure;";
+        document.cookie = "dark.css=dark.css; expires=" + date +";SameSite=None; Secure;";
       } else {
-        document.cookie = value +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
         let date = new Date(Date.now() + 86400e3);
         date = date.toUTCString();
-        document.cookie = "light = light.css; expires=" + date;
+        document.cookie = "dark.css=;expires=Thu, 01 Jan 1970 00:00:00 UTC;SameSite=None; Secure;";
+        document.cookie = "style.css=style.css; expires=" + date + ";SameSite=None; Secure;";
       }
     }
   </script>
