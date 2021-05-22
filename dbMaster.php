@@ -347,6 +347,8 @@ function search($city) {
   $limit = 4;
   $page = $_GET['page'];
   $start = ($page) * $limit;
+  $previous = $page - 1;
+  $next = $page + 1;
 
   $sel_stmt = $db->prepare("SELECT h_id, name, country, city, address, phone, rooms, descr FROM userhotels WHERE city = :city LIMIT $start, $limit");
   $sel_stmt->execute(array(':city' => $city));
@@ -415,10 +417,12 @@ function search($city) {
       }
     echo '</div>';
   }
-  echo '<div style="display:inline; width:100%;">';
-  for($j = 0; $j < $total / $limit; $j++) {
-      echo '<a href="http://localhost/project/search_result.php?s_city=athens&page='.$j.'" style="width:20px;height:20px;text-decoration:none">'.$j.'</a>';
-  }
+  echo '<div style="margin-top:20px;display:inline-block;width:100%;text-align:center;">';
+      echo '<a href="search_result.php?s_city=athens&page='.$previous.'" style="margin:0 10px 0;width:20px;height:20px;text-decoration:none;color:black;"><< Previous</a>';
+
+      echo '<a href="search_result.php?s_city=athens&page='.$page.'" style="margin:0 10px 0;width:20px;height:20px;text-decoration:none;color:black;">'.$page.'</a>';
+
+      echo '<a href="search_result.php?s_city=athens&page='.$next.'" style="margin:0 10px 0;width:20px;height:20px;text-decoration:none;color:black;">Next >></a>';
   echo '</div>';
 
 
