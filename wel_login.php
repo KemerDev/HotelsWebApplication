@@ -397,7 +397,7 @@
   </footer>
 
   <script>
-  function accessCookie(cookieName) {
+    function accessCookie(cookieName) {
         var name = cookieName + "=";
         var allCookieArray = document.cookie.split(';');
         for(var i=0; i<allCookieArray.length; i++)
@@ -411,7 +411,7 @@
   </script>
 
   <script>
-  function onloadputstyle() {
+    function onloadputstyle() {
     var styl = document.getElementById('stylelida').href;
     var styl_split = styl.split("/").pop();
     var value = accessCookie(styl_split);
@@ -422,8 +422,7 @@
       document.getElementById('stylelida').href = value;
       var allCookieArray = document.cookie.split(';');
     }
-  }
-  </script>
+  }</script>
 
   <script>
     function cha_mode(sheet){
@@ -533,6 +532,7 @@
         elem.style.display = "none";
       }, 7600);
   </script>
+
   <script>
     function but_prof() {
       var elem = document.getElementById("show-set");

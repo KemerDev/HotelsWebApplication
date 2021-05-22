@@ -344,21 +344,33 @@ function search($city) {
 
   $db = db_connect();
 
-  $sel_stmt = $db->prepare("SELECT h_id, name, country, city, address, phone, rooms, descr FROM userhotels WHERE city = :city");
+  $limit = 4;
+  $page = $_GET['page'];
+  $start = ($page) * $limit;
+
+  $sel_stmt = $db->prepare("SELECT h_id, name, country, city, address, phone, rooms, descr FROM userhotels WHERE city = :city LIMIT $start, $limit");
   $sel_stmt->execute(array(':city' => $city));
 
+  $count_stmt = $db->prepare("SELECT city FROM userhotels WHERE city = :city");
+  $count_stmt->execute(array(':city' => $city));
+
+  $total = 0;
+  while($c_row = $count_stmt->fetch(PDO::FETCH_ASSOC)) {
+    $total += 1;
+  }
 
   $full_stmt = $db->prepare("SELECT * FROM hotels_photos LEFT JOIN userhotels ON hotels_photos.h_id = userhotels.h_id");
   $full_stmt->execute();
 
   $photos = array();
 
+  $hotel_count = 0;
   while ($full_row = $full_stmt->fetch(PDO::FETCH_ASSOC)) {
     $photos[] = $full_row;
   }
 
   while($row = $sel_stmt->fetch(PDO::FETCH_ASSOC)) {
-    echo '<div style="margin:50px 400px 0;display:flex;border-radius:10px;border:solid;border-width:thin;background:white;box-shadow: 5px 10px 8px #888888;">';
+    echo '<div class="main-search-results" style="margin:50px 400px 0;display:flex;border-radius:10px;border:solid;border-width:thin;background:white;box-shadow: 5px 10px 8px #888888;">';
       echo '<div style="width:20%;border-right:solid;border-width:thin;">';
         foreach ($photos as $photo){
           if($row["h_id"] === $photo["h_id"]) {
@@ -403,5 +415,11 @@ function search($city) {
       }
     echo '</div>';
   }
+  echo '<div style="display:inline; width:100%;">';
+  for($j = 0; $j < $total / $limit; $j++) {
+      echo '<a href="http://localhost/project/search_result.php?s_city=athens&page='.$j.'" style="width:20px;height:20px;text-decoration:none">'.$j.'</a>';
+  }
+  echo '</div>';
+
 
 }

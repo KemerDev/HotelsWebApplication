@@ -33,7 +33,7 @@
           $erno_msg[] = "No matches found for that city";
           header("location: http://localhost/project/index.php");
         } else {
-          $url = "http://localhost/project/search_result.php?s_city=$city";
+          $url = "http://localhost/project/search_result.php?s_city=$city&page=0";
           header("location: $url");
           break;
         }
@@ -113,8 +113,8 @@
     <div class="main-search-cont">
       <div id="error" style="width: 1103px;bottom:507px;position: absolute;text-align:center;"><strong><?php
               if(isset($erno_msg)){
-                  foreach ($erno_msg as $error) {
-                      echo $error;
+                  foreach ($erno_msg as $err) {
+                      echo $err;
                     }
                   } ?></strong></div>
       <div class="text-search"><strong>Choose city</strong></div>
