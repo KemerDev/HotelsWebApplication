@@ -417,12 +417,18 @@ function search($city) {
       }
     echo '</div>';
   }
-  echo '<div style="margin-top:20px;display:inline-block;width:100%;text-align:center;">';
-      echo '<a href="search_result.php?s_city=athens&page='.$previous.'" style="margin:0 10px 0;width:20px;height:20px;text-decoration:none;color:black;"><< Previous</a>';
 
+
+
+  echo '<div style="margin-top:20px;display:inline-block;width:100%;text-align:center;">';
+    if($previous != -1) {
+      echo '<a href="search_result.php?s_city=athens&page='.$previous.'" style="margin:0 10px 0;width:20px;height:20px;text-decoration:none;color:black;"><< Previous</a>';
+    }
       echo '<a href="search_result.php?s_city=athens&page='.$page.'" style="margin:0 10px 0;width:20px;height:20px;text-decoration:none;color:black;">'.$page.'</a>';
 
+    if($next != ceil($total/$limit)) {
       echo '<a href="search_result.php?s_city=athens&page='.$next.'" style="margin:0 10px 0;width:20px;height:20px;text-decoration:none;color:black;">Next >></a>';
+    }
   echo '</div>';
 
 
