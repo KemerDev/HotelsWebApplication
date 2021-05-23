@@ -36,14 +36,17 @@
               </div>
               <?php
             }
+          } else {
+            ?>
+            <div>
+              <strong>THANK YOU FOR SIGNING UP</strong>
+            </div>
+            <div>
+              <strong>PLEASE VERIFY YOUR ACCOUNT VIA EMAIL</strong>
+            </div>
+            <?php
           }
          ?>
-        <div>
-          <strong>THANK YOU FOR SIGNING UP</strong>
-        </div>
-        <div>
-          <strong>PLEASE VERIFY YOUR ACCOUNT VIA EMAIL</strong>
-        </div>
       </div>
     </div>
     <footer class="main-footer">
