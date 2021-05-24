@@ -1,6 +1,6 @@
 <?php echo '<link rel="stylesheet" href="style.css">' ?>
+<?php require_once('dbMaster.php') ?>
 <?php
-  require_once('dbMaster.php');
 
   if(captcha_Val() == true){
     if(isset($_REQUEST["create"])) {
@@ -24,6 +24,7 @@
   <title>login form</title>
   <meta http-equiv="refresh" content="300">
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -44,22 +45,25 @@
     <div class="main-form-cont-bod">
       <div class="main-form-wrapp-bod">
 
-        <?php
-          if(isset($er_msg)) {
-            foreach ($er_msg as $error) {
-              ?>
-              <div style="text-align: center; margin: 10px 0 10px;">
-                <strong><?php echo $error; ?></strong>
-              </div>
-              <?php
-            }
-          }
-         ?>
-        <form class="main-form" action="create_form.php" method="post">
+        <form id="cre_get" class="main-form" action="create_form.php" method="post">
           <div class="text-cre"> Create Account</div>
+          <?php
+            if(isset($er_msg)) {
+              foreach ($er_msg as $error) {
+                ?>
+                <div id="errno" style="text-align: center; margin: 10px 0 10px;">
+                  <strong><?php echo $error; ?></strong>
+                </div>
+                <?php
+              }
+            }
+           ?>
+          <div id="inuse" style="text-align: center; margin: 10px 0 10px; display: none;"><strong>username already in use</strong></div>
+          <div id="notinuse" style="text-align: center; margin: 10px 0 10px; display: none;"><strong>username available</strong></div>
+
           <div class="sign-data">
             <label>Username</label>
-            <input class="col-right-inp" type="text" name="username" maxlength="20" size="40" required>
+            <input id="uname" class="col-right-inp" type="text" name="username" maxlength="20" size="40" required>
           </div>
           <div class="sign-data">
             <label>Password</label>
@@ -96,5 +100,13 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    var err = document.getElementById('errno');
+    setTimeout(function(){
+      err.style.display = "none";
+    }, 5000);
+  </script>
+
 </body>
 </html>

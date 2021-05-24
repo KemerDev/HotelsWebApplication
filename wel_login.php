@@ -1,5 +1,6 @@
 <?php require_once('dbMaster.php'); ?>
-<?php echo '<link rel="stylesheet" href="style.css">' ?>
+<?php echo '<link id="stylelida" rel="stylesheet" href="style.css">' ?>
+
 <?php
   session_start();
 
@@ -213,10 +214,11 @@
 <html lang="en" dir="ltr">
 
 <head>
+
   <meta charset="utf-8">
   <title>WebHotels</title>
-  <link id="stylelida" rel="stylesheet" href="style.css">
-  <script src="jquery-3.5.1.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <meta http-equiv="refresh" content="300" >
 </head>
 <body onload="onloadputstyle()">
@@ -397,47 +399,52 @@
   </footer>
 
   <script>
-    function accessCookie(cookieName) {
-        var name = cookieName + "=";
+    function accessCookie() {
+        namestyle = 'style=';
+        namedark = 'dark=';
+
         var allCookieArray = document.cookie.split(';');
         for(var i=0; i<allCookieArray.length; i++)
         {
           var temp = allCookieArray[i].trim();
-          if (temp.indexOf(name)==0)
-            return temp.substring(name.length,temp.length);
+          if (temp.indexOf(namestyle)==0) {
+            return temp.substring(namestyle.length,temp.length);
+        } else {
+            return temp.substring(namedark.length,temp.length);
         }
+      }
         return "";
       }
   </script>
 
   <script>
     function onloadputstyle() {
-    var styl = document.getElementById('stylelida').href;
-    var styl_split = styl.split("/").pop();
-    var value = accessCookie(styl_split);
-    console.log(value);
-    if (value === 'style.css') {
-      document.getElementById('stylelida').href = value;
-    } else {
-      document.getElementById('stylelida').href = value;
-      var allCookieArray = document.cookie.split(';');
+      var value = accessCookie();
+
+      if (value === 'style.css') {
+        document.getElementById('stylelida').href = 'style.css';
+      } else if (value === 'dark.css') {
+        document.getElementById('stylelida').href = 'dark.css';
+      }
     }
-  }</script>
+  </script>
 
   <script>
     function cha_mode(sheet){
-      document.getElementById('stylelida').href = sheet;
-      var value = accessCookie(sheet);
-      if(sheet == 'dark.css') {
+
+      if(sheet === 'dark.css') {
+        document.getElementById('stylelida').href = sheet;
         let date = new Date(Date.now() + 86400e3);
         date = date.toUTCString();
-        document.cookie = "style.css=;expires=Thu, 01 Jan 1970 00:00:00 UTC;SameSite=None; Secure;";
-        document.cookie = "dark.css=dark.css; expires=" + date +";SameSite=None; Secure;";
-      } else {
+        document.cookie = "style=;expires=Thu, 01 Jan 1970 00:00:00 UTC;SameSite=None; Secure;";
+        document.cookie = "dark=dark.css; expires=" + date +";SameSite=None; Secure;";
+
+      } else if (sheet === 'style.css') {
+        document.getElementById('stylelida').href = sheet;
         let date = new Date(Date.now() + 86400e3);
         date = date.toUTCString();
-        document.cookie = "dark.css=;expires=Thu, 01 Jan 1970 00:00:00 UTC;SameSite=None; Secure;";
-        document.cookie = "style.css=style.css; expires=" + date + ";SameSite=None; Secure;";
+        document.cookie = "dark=;expires=Thu, 01 Jan 1970 00:00:00 UTC;SameSite=None; Secure;";
+        document.cookie = "style=style.css; expires=" + date + ";SameSite=None; Secure;";
       }
     }
   </script>
