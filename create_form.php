@@ -58,8 +58,7 @@
               }
             }
            ?>
-          <div id="inuse" style="text-align: center; margin: 10px 0 10px; display: none;"><strong>username already in use</strong></div>
-          <div id="notinuse" style="text-align: center; margin: 10px 0 10px; display: none;"><strong>username available</strong></div>
+          <div id="uresponse" style="text-align: center; margin: 10px 0 10px;"></div>
 
           <div class="sign-data">
             <label>Username</label>
@@ -71,7 +70,7 @@
           </div>
           <div class="sign-data">
             <label>Email</label>
-            <input class="col-right-inp" type="text" name="email" maxlength="100" size="40" required>
+            <input id="umail" class="col-right-inp" type="text" name="email" maxlength="100" size="40" required>
           </div>
 
           <?php
@@ -102,10 +101,33 @@
   </footer>
 
   <script>
+    $(document).ready(function(){
+      $("#uname").keyup(function() {
+        var uname = $(this).val().trim();
+        console.log(uname);
+        if(uname != "") {
+          $.ajax({
+            url: 'checkavailable.php',
+            type: 'POST',
+            data: {"uname":uname},
+            success: function(response) {
+              $("#uresponse").html(response);
+            }
+          });
+        } else {
+          $("#uresponse").html("");
+        }
+      });
+    });
+  </script>
+
+  <script>
     var err = document.getElementById('errno');
-    setTimeout(function(){
-      err.style.display = "none";
-    }, 5000);
+    if(err != '') {
+      setTimeout(function(){
+        err.style.display = "none";
+      }, 5000);
+    }
   </script>
 
 </body>
