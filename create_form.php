@@ -104,12 +104,31 @@
     $(document).ready(function(){
       $("#uname").keyup(function() {
         var uname = $(this).val().trim();
-        console.log(uname);
         if(uname != "") {
           $.ajax({
             url: 'checkavailable.php',
             type: 'POST',
             data: {"uname":uname},
+            success: function(response) {
+              $("#uresponse").html(response);
+            }
+          });
+        } else {
+          $("#uresponse").html("");
+        }
+      });
+    });
+  </script>
+
+  <script>
+    $(document).ready(function(){
+      $("#umail").keyup(function() {
+        var umail = $(this).val().trim();
+        if(umail != "") {
+          $.ajax({
+            url: 'checkavailable.php',
+            type: 'POST',
+            data: {"umail":umail},
             success: function(response) {
               $("#uresponse").html(response);
             }
