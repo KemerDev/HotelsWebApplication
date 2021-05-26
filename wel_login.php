@@ -283,9 +283,9 @@
 
           $row = $sel_stmt->fetch(PDO::FETCH_ASSOC);
           if(isset($_SESSION["ulogin"])) {
-              echo "welcome " .$row['username'];
-            }
-          ?></p>
+            echo "welcome " .$row['username'];
+          }
+        ?></p>
     <div class="main-body-wrapp">
       <div class="left-col-up">
         <div class="left-col-contain-up">
@@ -326,8 +326,8 @@
                 <textarea name="graph_text" cols="50" rows="10" placeholder="description" required></textarea>
               </div>
               <div>
-                <strong>Upload photos</strong>
-                <input type="file" name="images[]" multiple>
+                <strong>Upload photos in jpeg format</strong>
+                <input type="file" name="images[]" accept="image/jpeg" multiple>
               </div>
               <div id="button">
                 <button type="submit" name="submit-form">Submit</button>
@@ -351,7 +351,7 @@
               <form method="post" enctype="multipart/form-data" action="">
                 <div style="width:100%;"><strong>Change profile picture</strong></div>
                 <div>
-                  <input type="file" name="photo" maxlength="30" size="30">
+                  <input type="file" name="photo" accept="image/jpeg" maxlength="30" size="30">
                 </div>
                 <div id="button-photo">
                   <button type="submit" name="cha_photo">Change</button>

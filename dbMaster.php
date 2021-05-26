@@ -432,6 +432,4 @@ function search($city) {
   echo '</div>';
 
 
-}
-
-?>
+}?>
