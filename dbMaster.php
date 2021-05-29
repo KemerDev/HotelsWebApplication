@@ -4,7 +4,7 @@ function db_connect() {
   $host = "localhost";
   $user = "root";
   $pass = "";
-  $db_name = "useraccounts";
+  $db_name = "webhotels";
 
   try {
     $db = new PDO("mysql:host={$host};dbname={$db_name}", $user, $pass);
@@ -255,7 +255,7 @@ function get_user_h($id) {
               echo '<button type="submit" name="'.$photo["id"].'" title="delete '.$photo["p_name"].'?" style="padding:0;background:none;border:none;cursor: pointer;"><img src="media/del_x.png" style="width:20;height:20;"/></button>';
             echo '</form>';
           echo '</div>';
-          echo '<img src="image_temp/'.$photo["p_name"].'"style="margin:12px 0 12px;width:125;height:75;"/>';
+          echo '<img src="image_temp/'.$photo["p_name"].'"style="margin:12px 10px 12px;width:125;height:75;"/>';
         echo '</div>';
       }
     }
@@ -432,4 +432,6 @@ function search($city) {
   echo '</div>';
 
 
-}?>
+}
+
+?>

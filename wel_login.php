@@ -10,7 +10,7 @@
 
   $id = $_SESSION["ulogin"];
   $_SESSION["logout"] = time();
-  if($_COOKIE["type"] == time()+300) {
+  if($_SESSION["logout"] == time()+300) {
     logout();
   } else if(isset($_GET["out"])) {
     logout();
